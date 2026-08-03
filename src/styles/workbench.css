@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f3f5f8;
+  color: #1f2937;
+}
+
+.wb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #dbe1e8;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.wb-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.wb-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.wb-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wb-btn {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wb-btn:hover {
+  background: #f8fafc;
+}
+
+.wb-btn.is-active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.wb-container {
+  height: calc(100vh - 78px);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.wb-panel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #dbe1e8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.wb-panel-head {
+  height: 48px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #e5eaf0;
+  background: #f8fafc;
+}
+
+.wb-panel-head strong {
+  display: block;
+  font-size: 14px;
+}
+
+.wb-panel-head span {
+  display: block;
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.wb-link {
+  color: #2563eb;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.wb-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  background: #fff;
+}
+
+body.layout-main .wb-container {
+  grid-template-columns: 1fr;
+}
+
+body.layout-main .wb-singlepoint-panel {
+  display: none;
+}
+
+body.layout-singlepoint .wb-container {
+  grid-template-columns: 1fr;
+}
+
+body.layout-singlepoint .wb-main-panel {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .wb-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wb-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: calc(100vh - 78px);
+  }
+
+  .wb-panel {
+    min-height: 70vh;
+  }
+}
