@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+const getBaseURL = () => {
+  if (process.env.REACT_APP_API_BASE) return process.env.REACT_APP_API_BASE;
+  if (window.location.hostname === '192.168.1.3') return 'http://192.168.1.3:8099';
+  return 'http://localhost:8099';
+};
+
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE || 'http://localhost:8099',
+  baseURL: getBaseURL(),
   timeout: 15000,
   headers: { 'Content-Type': 'application/json;charset=utf-8' }
 });

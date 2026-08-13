@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import MainLayout from './components/Layout/MainLayout';
 import Dashboard from './pages/Dashboard';
 import PlcPage from './pages/PlcPage';
@@ -121,7 +121,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainLayout globalRunning={globalRunning} flowRunning={flowRunning} flowLoading={flowLoading}
                    sendOneLoading={sendOneLoading}
                    onFlowStart={handleFlowStart} onFlowStop={handleFlowStop} onSendOne={handleSendOne}>
@@ -137,6 +137,6 @@ export default function App() {
         </Switch>
       </MainLayout>
       {toastMsg && <Toast message={toastMsg.message} type={toastMsg.type} onClose={() => setToastMsg(null)} />}
-    </BrowserRouter>
+    </HashRouter>
   );
 }
